@@ -1,0 +1,14 @@
+{% extends 'vendor/vendor_basic.html' %}
+{% block title %}{% endblock title %}
+{% block head %}
+{% endblock head %}
+{% block body %}
+<div class="container" style="margin-left: 30px">
+<h1>Vendor products</h1>
+{% for product in v_products%}
+{{product.product_name}}
+    <a href="{% url 'update_product' product.id%}">update</a>
+{% endfor %}
+</div>
+
+{% endblock %}

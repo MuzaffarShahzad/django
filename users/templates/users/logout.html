@@ -1,0 +1,12 @@
+{% extends 'shop/basic.html' %}
+{% block title %} Logout-Blog App {% endblock title %}
+{% block body %}
+<div class="container">
+<div class="col-lg-12 col-md-4 col-sm-6 col-xs-12" style="text-align: center">
+          <h1>You have been <strong>Logout</strong></h1>
+          <div class="sidebar-widget-body">
+              <a href="{% url 'login' %}"><p><strong>Login</strong> again!</p></a>
+            </div>
+            </div>
+    </div>
+{% endblock body %}

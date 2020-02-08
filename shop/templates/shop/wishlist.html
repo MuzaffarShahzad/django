@@ -1,0 +1,55 @@
+{% extends 'shop/basic.html' %}
+{% block title %} Cart {% endblock %}
+{% block body %}
+<div class="body-content">
+	<div class="container">
+		<div class="my-wishlist-page">
+			<div class="row">
+				<div class="col-md-12 my-wishlist">
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+				<tr>
+					<th colspan="4" class="heading-title">My Wishlist</th>
+				</tr>
+			</thead>
+			<tbody>
+            {% for product in object %}
+				<tr>
+
+					<td class="col-md-2"><img src="/media/{{product.item.image}}" alt="imga"></td>
+					<td class="col-md-7">
+						<div class="product-name"><a href="/product/{{product.item.slug}}">{{product.item.product_name}}</a></div>
+						<div class="rating">
+							<i class="fa fa-star rate"></i>
+							<i class="fa fa-star rate"></i>
+							<i class="fa fa-star rate"></i>
+							<i class="fa fa-star rate"></i>
+							<i class="fa fa-star non-rate"></i>
+							<span class="review">( 06 Reviews )</span>
+						</div>
+						<div class="price">
+                            {% if product.item.discount_price %}
+							${{product.item.discount_price}}
+							<span>${{product.item.price}}</span>
+                            {% else %}
+                            ${{product.item.price}}
+                            {% endif %}
+						</div>
+					</td>
+					<td class="col-md-2">
+						<a href="{{product.item.get_add_to_cart_url}}" class="btn-upper btn btn-primary">Add to cart</a>
+					</td>
+					<td class="col-md-1 close-btn">
+						<a href="{{product.item.get_remove_from_wishlist_url}}" class=""><i class="fa fa-times"></i>Delete</a>
+					</td>
+				</tr>
+            {% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>			</div><!-- /.row -->
+		</div><!-- /.sigin-in-->
+    </div>
+</div>
+{% endblock body %}

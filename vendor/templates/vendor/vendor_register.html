@@ -1,0 +1,18 @@
+{% extends 'shop/basic.html' %}
+{% load crispy_forms_tags %}
+{% block head %} {% endblock head %}
+{% block body %}
+<div class="row" style="margin-bottom: 30px">
+	<div class="container m-t-20">
+		<h4 class="checkout-subtitle" style="text-align: center; padding-top: 10px">Vendor Registration</h4>
+		<p class="text title-tag-line" style="text-align: center; padding-bottom: 20px">Add new vendor account.</p>
+		<form class="register-form outer-top-xs" enctype="multipart/form-data" method="post">
+			{% csrf_token %}
+			{{vendor_form|crispy}}
+			<input class="btn-upper btn btn-primary checkout-page-button col-md-12" type="submit"></input>
+		</form>
+
+
+</div>
+<!-- create a new account -->			</div><!-- /.row -->
+{% endblock body %}

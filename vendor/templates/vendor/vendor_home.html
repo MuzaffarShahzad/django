@@ -1,0 +1,81 @@
+{% extends 'vendor/vendor_basic.html' %}
+{% block title %} Vendor Home {% endblock title %}
+{% block head %}  {% endblock head %}
+{% block body %}
+   <div class="admin-dashone-data-table-area mg-b-15">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="sparkline8-list shadow-reset">
+                                <div class="sparkline8-hd">
+                                    <div class="main-sparkline8-hd">
+                                        <h1>Product List</h1>
+                                        <div class="sparkline8-outline-icon">
+                                            <span class="sparkline8-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                                            <span><i class="fa fa-wrench"></i></span>
+                                            <span class="sparkline8-collapse-close"><i class="fa fa-times"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sparkline8-graph">
+                                    <div class="datatable-dashv1-list custom-datatable-overright">
+<!--                                        <div id="toolbar">-->
+<!--                                            <select class="form-control">-->
+<!--                                                <option value="">Export Basic</option>-->
+<!--                                                <option value="all">Export All</option>-->
+<!--                                                <option value="selected">Export Selected</option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+                                        <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                            <thead>
+                                                <tr>
+                                                    <th data-field="state" data-checkbox="true"></th>
+                                                    <th data-field="id">ID</th>
+                                                    <th data-field="status">Status</th>
+                                                    <th data-field="name" data-editable="true">Product Name</th>
+                                                    <th data-field="image" data-editable="true">Image</th>
+                                                    <th data-field="category" data-editable="true">category</th>
+                                                    <th data-field="company" data-editable="true">Price</th>
+                                                    <th data-field="task" data-editable="true">Discount Price</th>
+                                                    <th data-field="action">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for product in v_products%}
+                                                <tr>
+                                                    <td></td>
+                                                    <td>{{forloop.counter}}</td>
+                                                    <td>
+                                                        <div class="btn-group project-list-ad">
+                                                            <button class="btn btn-white btn-xs">In Stock</button>
+                                                        </div>
+                                                    </td>
+                                                    <td>{{product.product_name}}</td>
+                                                    <td><img src="media/{{product.image}}" style="width:10px;height:10px;"></td>
+                                                    <td>{{product.category}}</td>
+                                                    <td>{{product.price}}$</td>
+                                                    <td>{{product.discount_price}}$</td>
+                                                    <td>
+                                                        <div class="btn-group project-list-action">
+                                                            <button class="btn btn-white btn-xs"><i class="fa fa-folder"></i> View</button>
+                                                            <button class="btn btn-white btn-xs"><i class="fa fa-pencil"></i> Edit</button>
+                                                            <button class="btn btn-white btn-action btn-xs"><i class="fa fa-remove"></i> Delete</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock body %}

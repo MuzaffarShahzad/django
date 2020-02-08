@@ -1,0 +1,42 @@
+{% extends 'shop/basic.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Registration-Ecomm {% endblock title %}
+{% block body %}
+<div class="sign-in-page container">
+<!-- create a new account -->
+<div class="col-md-6 col-md-offset-3 create-new-account">
+	<form class="register-form outer-top-xs" method="POST">
+		{% csrf_token %}
+	<legend class="checkout-subtitle">Create a new account</legend>
+		{{ form|crispy }}
+		<div class="radio outer-xs">
+	<div class="border-top pt-3">
+    <small class="test-muted pull-right">
+        Already Have an Account? <a href="{% url 'login' %}" class="ml-2">Sign In</a>
+    </small>
+	</div>
+   </div>
+	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Sign Up</button>
+	</form>
+
+<!-- create a new account -->
+            </div><!-- /.row -->
+		</div>
+<!--<div class="content-section">-->
+<!--    <form method="POST">-->
+<!--        {% csrf_token %}-->
+<!--        <fieldset class="form-group">-->
+<!--            <legend class="border-bottom">Join Today</legend>-->
+<!--            {{ form.as_p }}-->
+<!--        </fieldset>-->
+<!--        <div class="form-group">-->
+<!--            <button class="btn btn-outline-info" type="submit">Sign Up</button>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--<div class="border-top pt-3">-->
+<!--    <small class="test-muted">-->
+<!--        Already Have an Account?<a href="#" class="ml-2">Sign In</a>-->
+<!--    </small>-->
+<!--</div>-->
+<!--</div>-->
+{% endblock body %}

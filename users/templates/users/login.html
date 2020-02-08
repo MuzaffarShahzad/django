@@ -1,0 +1,58 @@
+{% extends 'shop/basic.html' %}
+{% load crispy_forms_tags %}
+<!--socal account login-->
+{% load socialaccount %}
+{% providers_media_js %}
+{% block title %} Login-Blog App {% endblock title %}
+{% block body %}
+
+<div class="container">
+<div class="sign-in-page" style="text-align: center">
+<div class="col-md-6 sign-in col-md-offset-3">
+	<h4 class="">Sign in</h4>
+	<p class="">Hello, Welcome to your account.</p>
+<!--	<div class="social-sign-in outer-top-xs">-->
+<!--		<a href="#" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>-->
+<!--		<a href="#" class="twitter-sign-in"><i class="fa fa-twitter"></i> Sign In with Twitter</a>-->
+<!--	</div>-->
+	<form class="register-form outer-top-xs" role="form" method="POST">
+        {% csrf_token %}
+		<div class="form-group ">
+    		    <div class="form-control unicase-form-control" >
+					{{ form|crispy }}
+				</div>
+        </div>
+		<div class="radio outer-xs">
+		  	<div class="border-top pt-3">
+               <small class="test-muted">
+                    Need an Account? <a href="{% url 'register' %}" class="ml-2 forgot-password">Sign Up</a>
+               </small>
+            </div>
+		  	<a href="{% url 'password_reset' %}" class="forgot-password pull-right">Forgot your Password?</a>
+		</div>
+	  	<button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
+	</form>
+</div>
+<!-- Sign-in -->
+
+		</div><!-- /.row -->
+		</div><!-- /.sigin-in-->
+
+<!--<div class="content-section">-->
+<!--    <form method="POST">-->
+<!--        {% csrf_token %}-->
+<!--        <fieldset class="form-group">-->
+<!--            <legend class="border-bottom">Login Now</legend>-->
+<!--            {{ form }}-->
+<!--        </fieldset>-->
+<!--        <div class="form-group">-->
+<!--            <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--<div class="border-top pt-3">-->
+<!--    <small class="test-muted">-->
+<!--        Need an Account?<a href="{% url 'register' %}" class="ml-2">Sign Up</a>-->
+<!--    </small>-->
+<!--</div>-->
+<!--</div>-->
+{% endblock body %}
